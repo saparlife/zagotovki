@@ -1,114 +1,196 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fefefe;
-  --foreground: #1a1a1a;
+  /* Тёплая палитра */
+  --background: #FFFBF7;
+  --background-warm: #FDF8F3;
+  --background-cream: #FAF3EB;
+  --foreground: #3D3229;
+  --foreground-soft: #5D4E37;
+
+  /* Бренд */
   --primary: rgb(133, 14, 53);
   --primary-light: rgb(163, 44, 83);
-  --primary-dark: rgb(103, 4, 33);
-  --accent: #f8f4f1;
-  --accent-warm: #fff8f5;
+  --primary-soft: rgba(133, 14, 53, 0.1);
+
+  /* Акценты */
+  --accent-gold: #C9A66B;
+  --accent-peach: #E8C4A8;
+  --accent-rose: #E8D4D4;
+  --accent-sage: #D4E0D4;
+
+  /* Тени */
+  --shadow-warm: 0 4px 20px rgba(93, 78, 55, 0.08);
+  --shadow-warm-lg: 0 10px 40px rgba(93, 78, 55, 0.12);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
-  --color-primary-light: var(--primary-light);
-  --color-primary-dark: var(--primary-dark);
-  --color-accent: var(--accent);
-  --color-accent-warm: var(--accent-warm);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-nunito);
+  --font-serif: var(--font-playfair);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: 'Nunito', Arial, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Мягкий скроллбар */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--background-cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 4px;
+  background: var(--accent-peach);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
+  background: var(--primary);
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Типографика */
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(133, 14, 53, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 15px rgba(133, 14, 53, 0);
-  }
+.text-warm {
+  color: var(--foreground-soft);
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+/* Анимации — мягкие */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s infinite;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
 }
 
-/* Card hover effects */
-.card-hover {
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+/* Карточки */
+.card-warm {
+  background: white;
+  border-radius: 24px;
+  box-shadow: var(--shadow-warm);
   transition: all 0.3s ease;
 }
 
-.card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(133, 14, 53, 0.1);
+.card-warm:hover {
+  box-shadow: var(--shadow-warm-lg);
+  transform: translateY(-3px);
 }
 
-/* Carousel styles */
-.carousel-container {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+/* Декоративные элементы */
+.blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 }
 
-.carousel-container::-webkit-scrollbar {
-  display: none;
+.blob-2 {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 }
 
-.carousel-item {
-  scroll-snap-align: start;
-  flex-shrink: 0;
+/* Кнопки */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--primary-light);
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary);
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-weight: 700;
+  border: 2px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-soft);
+}
+
+/* Секции */
+.section-padding {
+  padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 120px 0;
+  }
+}
+
+/* Волнистый разделитель */
+.wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
+/* Декоративные иконки */
+.decoration {
+  position: absolute;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Цитаты */
+.quote-mark {
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.2;
 }

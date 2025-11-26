@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Benefits from '@/components/Benefits';
+import Author from '@/components/Author';
 import Program from '@/components/Program';
 import AppSection from '@/components/AppSection';
 import Reviews from '@/components/Reviews';
@@ -15,6 +16,7 @@ export default function Home() {
       <main>
         <Hero />
         <Benefits />
+        <Author />
         <Program />
         <AppSection />
         <Reviews />

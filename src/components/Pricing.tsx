@@ -1,99 +1,106 @@
 const included = [
-  'База знаний по заморозке',
-  '7 модулей с видеоуроками',
-  '30+ рецептов с пошаговыми инструкциями',
-  'Техники разморозки для каждого блюда',
-  'Готовое меню на месяц',
-  'Сбор тарелок и подача блюд',
-  'Обратная связь в чате',
-  'Доступ на 1 год',
+  { emoji: '📚', text: 'База знаний по заморозке' },
+  { emoji: '🎬', text: '7 модулей с видео-уроками' },
+  { emoji: '📝', text: '30+ рецептов с пошаговыми инструкциями' },
+  { emoji: '❄️', text: 'Техники разморозки для каждого блюда' },
+  { emoji: '📅', text: 'Готовое меню на месяц' },
+  { emoji: '🍽', text: 'Сбор тарелок и красивая подача' },
+  { emoji: '💬', text: 'Чат с поддержкой и обратной связью' },
+  { emoji: '🗓', text: 'Доступ на целый год' },
 ];
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[rgb(133,14,53)] font-semibold text-sm uppercase tracking-wider">
-            Стоимость участия
+    <section id="pricing" className="section-padding bg-[#FAF3EB] relative overflow-hidden">
+      {/* Декор */}
+      <div className="absolute top-20 left-10 text-6xl opacity-10">💳</div>
+      <div className="absolute bottom-20 right-10 text-5xl opacity-10">✨</div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-2 rounded-full bg-white text-[rgb(133,14,53)] text-sm font-semibold mb-4">
+            Стоимость курса
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
-            Инвестиция в вашу свободу
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#3D3229] mb-6">
+            Инвестиция в твоё{' '}
+            <span className="text-[rgb(133,14,53)]">свободное время</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Один раз научиться — экономить время каждый день
+          <p className="text-xl text-[#5D4E37] max-w-2xl mx-auto">
+            Один раз научиться — экономить время каждый день целый год
           </p>
         </div>
 
-        <div className="max-w-xl mx-auto">
-          <div className="relative">
-            {/* Badge */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-[rgb(133,14,53)] text-white font-semibold text-sm shadow-lg">
-                3 поток — старт 10 октября
-              </span>
-            </div>
-
-            <div className="bg-gradient-to-br from-white to-[#fff8f5] rounded-3xl p-8 md:p-10 shadow-2xl border border-[rgb(133,14,53)]/10">
-              {/* Price */}
-              <div className="text-center mb-8">
-                <div className="flex items-center justify-center gap-3 mb-2">
-                  <span className="text-2xl text-gray-400 line-through">50 990 ₸</span>
-                  <span className="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-semibold">
-                    -31%
-                  </span>
-                </div>
-                <div className="text-5xl md:text-6xl font-bold text-[rgb(133,14,53)]">
-                  34 990 ₸
-                </div>
-                <p className="text-gray-500 mt-3">
-                  5600 сом • 5300 ₽ • 67$
-                </p>
-              </div>
-
-              {/* Features */}
-              <div className="space-y-4 mb-8">
-                {included.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-[rgb(133,14,53)] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA */}
-              <a
-                href="#"
-                className="block w-full py-4 px-8 rounded-full text-white font-bold text-lg text-center transition-all duration-300 hover:scale-105 animate-pulse-glow"
-                style={{ backgroundColor: 'rgb(133, 14, 53)' }}
-              >
-                Присоединиться к 3 потоку
-              </a>
-
-              {/* Guarantee */}
-              <div className="mt-6 flex items-center justify-center gap-2 text-gray-500 text-sm">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                <span>Безопасная оплата • Поддержка 24/7</span>
-              </div>
-            </div>
+        {/* Карточка цены */}
+        <div className="relative">
+          {/* Метка */}
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[rgb(133,14,53)] text-white font-semibold shadow-lg">
+              <span>🎉</span>
+              3 поток — старт 10 октября
+            </span>
           </div>
 
-          {/* Value proposition */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { value: '~175₸', label: 'в день за год доступа' },
-              { value: '2+ часа', label: 'экономии времени каждый день' },
-              { value: '30+', label: 'рецептов для всей семьи' },
-            ].map((item, index) => (
-              <div key={index} className="text-center p-4">
-                <div className="text-2xl font-bold text-[rgb(133,14,53)]">{item.value}</div>
-                <div className="text-gray-600 text-sm mt-1">{item.label}</div>
+          <div className="bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_10px_40px_rgba(93,78,55,0.1)] border border-[#E8C4A8]/20">
+            {/* Цена */}
+            <div className="text-center mb-10">
+              <div className="flex items-center justify-center gap-4 mb-3">
+                <span className="text-2xl text-[#C9A66B] line-through">50 990 ₸</span>
+                <span className="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-semibold">
+                  -31%
+                </span>
               </div>
-            ))}
+              <div className="text-5xl md:text-6xl font-bold text-[rgb(133,14,53)] mb-2">
+                34 990 ₸
+              </div>
+              <p className="text-[#5D4E37]">
+                5 600 сом • 5 300 ₽ • 67$
+              </p>
+            </div>
+
+            {/* Что входит */}
+            <div className="grid sm:grid-cols-2 gap-4 mb-10">
+              {included.map((item, index) => (
+                <div key={index} className="flex items-center gap-3 p-3 rounded-xl bg-[#FAF3EB]/50">
+                  <span className="text-2xl">{item.emoji}</span>
+                  <span className="text-[#3D3229]">{item.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="text-center">
+              <a
+                href="#"
+                className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-[rgb(133,14,53)] text-white font-bold text-xl shadow-lg hover:bg-[rgb(163,44,83)] transition-all hover:scale-105"
+              >
+                <span>Хочу на курс</span>
+                <span>→</span>
+              </a>
+
+              <p className="mt-6 text-[#5D4E37] flex items-center justify-center gap-2">
+                <span>🔒</span>
+                Безопасная оплата • Поддержка 24/7
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Дополнительная мотивация */}
+        <div className="mt-12 grid md:grid-cols-3 gap-6">
+          <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
+            <div className="text-3xl mb-3">💡</div>
+            <p className="text-2xl font-bold text-[rgb(133,14,53)]">~96 ₸</p>
+            <p className="text-[#5D4E37]">в день за год доступа</p>
+          </div>
+          <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
+            <div className="text-3xl mb-3">⏰</div>
+            <p className="text-2xl font-bold text-[rgb(133,14,53)]">90+ часов</p>
+            <p className="text-[#5D4E37]">экономии в месяц</p>
+          </div>
+          <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
+            <div className="text-3xl mb-3">❤️</div>
+            <p className="text-2xl font-bold text-[rgb(133,14,53)]">∞</p>
+            <p className="text-[#5D4E37]">вечеров с семьёй</p>
           </div>
         </div>
       </div>

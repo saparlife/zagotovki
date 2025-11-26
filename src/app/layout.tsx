@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Nunito, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Курс «Заготовки» | Kelin.Academy — Готовьте наперёд и упрощайте жизнь",
-  description: "Научитесь готовить и замораживать еду так, чтобы собрать полноценный завтрак или ужин за 5 минут. Курс от Kelin.Academy — 2 недели интенсива, 7 модулей, 30+ рецептов.",
-  keywords: "заготовки, заморозка еды, meal prep, кулинарный курс, готовка впрок, kelin academy",
+  title: "Курс «Заготовки» от Kelin.Academy — Готовь с любовью, живи без суеты",
+  description: "Научись готовить наперёд и собирать полноценный ужин за 5 минут. Домашняя еда без ежедневной готовки — для тебя и твоей семьи.",
+  keywords: "заготовки, заморозка еды, meal prep, кулинарный курс, готовка впрок, kelin academy, домашняя кухня",
   openGraph: {
-    title: "Курс «Заготовки» | Kelin.Academy",
-    description: "Собрать полноценный завтрак или ужин за 5 минут — реально! Научитесь замораживать готовую еду без потери вкуса.",
+    title: "Курс «Заготовки» — Готовь с любовью, живи без суеты",
+    description: "Домашняя еда каждый день без часов у плиты. Научись замораживать готовые блюда так, чтобы никто не отличил от свежих.",
     type: "website",
     locale: "ru_RU",
   },
@@ -26,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${nunito.variable} ${playfair.variable} antialiased`}>
         {children}
       </body>
     </html>
